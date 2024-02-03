@@ -1,28 +1,11 @@
-const express = require("express");
-const app = express()
-const handlebars = require("express-handlebars")
+const express = require("express")
+const router = express.Router()
 
-const bodyParser = require("body-parser")
-const Aluno = require("./models/Aluno")
+router.get('/cadAluno', (req, res) => {
+    res.render('formCreateStudent')
+})
 
-
-
-// Config
-// Template engine
-app.engine('handlebars', handlebars.engine({ defaultLayout: 'main' }))
-app.set('view engine', 'handlebars')
-
-// Config body parser
-app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.json())
-
-
-
-// Routes
-
-app.get('/cadAluno', )
-
-app.get('/alunos', (req, res) => {
+router.get('/alunos', (req, res) => {
     Aluno.findAll({ order: [['id', 'DESC']] }).then(alunos => {
         res.render('listStudents', {
             alunos: alunos
@@ -30,7 +13,7 @@ app.get('/alunos', (req, res) => {
     })
 })
 
-app.post('/matriculaCriada', (req, res) => {
+router.post('/matriculaCriada', (req, res) => {
     console.log(req.body.dataNascimento)
     Aluno.create({
         Nome: req.body.nomeAluno,
@@ -53,7 +36,7 @@ app.post('/matriculaCriada', (req, res) => {
 
 })
 
-app.get('/desmatricularAluno/:id', (req, res) => {
+router.get('/desmatricularAluno/:id', (req, res) => {
     Aluno.destroy({
         where: {
             'id': req.params.id
@@ -65,6 +48,5 @@ app.get('/desmatricularAluno/:id', (req, res) => {
     })
 })
 
-app.listen(3434, () => {
-    console.log("RUNING: http://localhost:3434")
-})
+
+module.exports = router;
