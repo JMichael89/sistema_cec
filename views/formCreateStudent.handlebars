@@ -1,0 +1,113 @@
+<div class="mainContainer">
+    <div class="container1">
+        <header>
+            <h1>Matricular Aluno</h1>
+        </header>
+        <div>
+            <span class="selectedStageForm">Dados do Aluno</span>
+            <span>Dados dos Pais</span>
+            <span>Endereço</span>
+        </div>
+    </div>
+    <div class="container2">
+        <form action="/matriculaCriada" method="POST">
+            <div class="dataStudent showingTypeForm">
+                <label class="sideBySide" for="nomeAluno">
+                    <span>Nome do Aluno</span>
+                    <input type="text" name="nomeAluno">
+                </label>
+                <label class="sideBySide" for="rgAluno">
+                    <span>RG do Aluno</span>
+                    <input type="text" name="rgAluno">
+                </label>
+                <label class="sideBySide" for="cpfAluno">
+                    <span>cpf do Aluno</span>
+                    <input type="text" name="cpfAluno">
+                </label>
+                <label class="sideBySide" for="dataNascimento">
+                    <span>Data de nascimento</span>
+                    <input type="date" name="dataNascimento">
+                </label>
+                <label class="sideBySide" for="situacao">
+                    <span>Situação</span>
+                    <select name="situacao" id="situacao">
+                        <option value="default">Selecione</option>
+                        <option value="matriculado">Matriculado</option>
+                        <option value="concluido">Concluído</option>
+                    </select>
+                </label>
+                <label class="sideBySide" for="serie">
+                    <span>Série</span>
+                    <input type="text" name="serie">
+                </label>
+                <label for="curso">
+                    <span>Curso</span>
+                    <input type="text" name="curso">
+                </label>
+                <label for="turno">
+                    <span>Turno</span>
+                    <select name="turno" id="turno">
+                        <option value="matutino">Matutino</option>
+                        <option value="vespertino">Vespertino</option>
+                        <option value="integral">Integral</option>
+                    </select>
+                </label>
+
+                <p>O Aluno Possui Deficiência?</p>
+                <input type="radio" id="simDef" name="possDef" value="S">
+                <label class="radioInput" for="simDef">Sim</label>
+                <input type="radio" id="naoDef" name="possDef" value="N">
+                <label class="radioInput" for="naoDef">Não</label>
+
+                <label for="listaDef">
+                    <span>Defina</span>
+                    <select name="listaDef" id="listaDef">
+                        <option value="default">Selecione</option>
+                        <option value="fisica">Física</option>
+                        <option value="motora">Motora</option>
+                        <option value="visual">Visual</option>
+                        <option value="intelectual">Intelectual</option>
+                        <option value="altismo">Altismo</option>
+                        <option value="tdah">TDAH</option>
+                        <option value="outro">Outro</option>
+                    </select>
+                </label>
+
+                <label for="outraDef">
+                    <span>Outra</span>
+                    <input type="text" name="outraDef" id="outraDef">
+                </label>
+
+                <p>O Aluno Toma Remédio?</p>
+                <input type="radio" id="simRemed" name="possRemed" value="S">
+                <label class="radioInput" for="simRemed">Sim</label>
+                <input type="radio" id="naoRemed" name="possRemed" value="N">
+                <label class="radioInput" for="naoRemed">Não</label>
+
+                <label for="qualRemed">
+                    <span>Qual?</span>
+                    <input type="text" name="qualRemed" id="qualRemed">
+                </label>
+
+                <p>O Aluno Possui Alguma Alergia?</p>
+                <input type="radio" id="simAlerg" name="possAlerg" value="S">
+                <label class="radioInput" for="simAlerg">Sim</label>
+                <input type="radio" id="naoAlerg" name="possAlerg" value="N">
+                <label class="radioInput" for="naoAlerg">Não</label>
+
+                <label for="qualAlerg">
+                    <span>Qual?</span>
+                    <input type="text" name="qualAlerg" id="qualAlerg">
+                </label>
+
+                <label for="observacao">
+                    <span>Observação</span>
+                    <textarea name="observacao" id="observacao" cols="30" rows="10"></textarea>
+                </label>
+
+            </div>
+
+            <button type="submit">Matricular Aluno</button>
+        </form>
+    </div>
+</div>

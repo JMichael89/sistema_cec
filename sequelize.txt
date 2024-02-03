@@ -1,0 +1,105 @@
+
+
+const Aluno = sequelize.define('Aluno', {
+    Nome: {
+      type: Sequelize.STRING,
+      allowNull: false
+    },
+    CPF: {
+      type: Sequelize.STRING(14),
+      allowNull: false,
+      unique: true
+    },
+    RG: {
+      type: Sequelize.STRING(20),
+      allowNull: false,
+      unique: true
+    },
+    Data_de_nascimento: {
+      type: Sequelize.DATE,
+      allowNull: false
+    },
+    Situacao: {
+      type: Sequelize.STRING(20)
+    },
+    Serie: {
+      type: Sequelize.STRING(20)
+    },
+    Curso: {
+      type: Sequelize.STRING(50)
+    },
+    Turno: {
+      type: Sequelize.STRING(20)
+    },
+    Deficiencia: {
+      type: Sequelize.STRING(100)
+    },
+    Alergias: {
+      type: Sequelize.STRING(100)
+    },
+    Observacao: {
+      type: Sequelize.TEXT
+    }
+  });
+  
+  // Modelo para a tabela Pai
+  const Pai = sequelize.define('Pai', {
+    Nome: {
+      type: Sequelize.STRING,
+      allowNull: false
+    },
+    Celular: {
+      type: Sequelize.STRING(15)
+    },
+    Profissao: {
+      type: Sequelize.STRING
+    },
+    RG: {
+      type: Sequelize.STRING(20),
+      allowNull: false,
+      unique: true
+    },
+    CPF: {
+      type: Sequelize.STRING(14),
+      allowNull: false,
+      unique: true
+    },
+    Data_de_aniversario: {
+      type: Sequelize.DATE
+    }
+  });
+  
+  // Modelo para a tabela Mãe
+  const Mae = sequelize.define('Mae', {
+    Nome: {
+      type: Sequelize.STRING,
+      allowNull: false
+    },
+    Celular: {
+      type: Sequelize.STRING(15)
+    },
+    Profissao: {
+      type: Sequelize.STRING
+    },
+    RG: {
+      type: Sequelize.STRING(20),
+      allowNull: false,
+      unique: true
+    },
+    CPF: {
+      type: Sequelize.STRING(14),
+      allowNull: false,
+      unique: true
+    },
+    Data_de_aniversario: {
+      type: Sequelize.DATE
+    }
+  });
+  
+  // Estabelecendo as associações
+  Aluno.belongsTo(Pai); // Define a relação Aluno -> Pai
+  Aluno.belongsTo(Mae); // Define a relação Aluno -> Mae
+
+  //sequelize.sync({ force: true });
+
+  module.exports = { Aluno, Pai, Mae };
