@@ -1,19 +1,20 @@
 const express = require("express")
 const router = express.Router()
+const Aluno = require("../models/Aluno")
 
-router.get('/cadAluno', (req, res) => {
+const getIndex = (req, res) => {
     res.render('formCreateStudent')
-})
+}
 
-router.get('/alunos', (req, res) => {
+const getListStudents = (req, res) => {
     Aluno.findAll({ order: [['id', 'DESC']] }).then(alunos => {
         res.render('listStudents', {
             alunos: alunos
         })
     })
-})
+}
 
-router.post('/matriculaCriada', (req, res) => {
+const postEnrollStudent = (req, res) => {
     console.log(req.body.dataNascimento)
     Aluno.create({
         Nome: req.body.nomeAluno,
@@ -33,10 +34,9 @@ router.post('/matriculaCriada', (req, res) => {
         console.log("ERRO AO CRIAR ALUNO")
         res.send("ERRO: " + err)
     });
+}
 
-})
-
-router.get('/desmatricularAluno/:id', (req, res) => {
+const getDisenrollStudent =  (req, res) => {
     Aluno.destroy({
         where: {
             'id': req.params.id
@@ -46,7 +46,12 @@ router.get('/desmatricularAluno/:id', (req, res) => {
     }).catch(err => {
         res.send("Este aluno não existe")
     })
-})
+}
 
 
-module.exports = router;
+module.exports = {
+    getIndex,
+    getListStudents,
+    postEnrollStudent,
+    getDisenrollStudent
+};
