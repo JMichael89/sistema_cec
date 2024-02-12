@@ -20,6 +20,7 @@ app.use(bodyParser.json());
 
 app.get('/cadAluno', controllerStudent.getIndex);
 app.get('/alunos', controllerStudent.getListStudents);
+app.get('/aluno/:id', controllerStudent.getOneStudent);
 app.post('/matriculaCriada', controllerStudent.postEnrollStudent);
 app.get('/desmatricularAluno/:id', controllerStudent.getDisenrollStudent);
 

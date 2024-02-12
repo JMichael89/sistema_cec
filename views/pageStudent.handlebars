@@ -1,0 +1,76 @@
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dados do Aluno</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #eaf7f6; /* verde claro */
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff; /* branco */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            margin: 40px 0;
+            text-align: center;
+            color: #2c3e50; /* azul escuro */
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 10px;
+            color: #34495e; /* azul médio */
+        }
+        label {
+            font-weight: bold;
+            color: #2980b9; /* azul claro */
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Dados do Aluno</h1>
+    <ul>
+        <li><label>Nome:</label> {{aluno.dataValues.Nome}}</li>
+        <li><label>CPF:</label> {{aluno.dataValues.CPF}}</li>
+        <li><label>RG:</label> {{aluno.dataValues.RG}}</li>
+        <li><label>Data de Nascimento:</label> {{formatedDateStudent}}</li>
+        <li><label>Situação:</label> {{aluno.dataValues.Situacao}}</li>
+        <li><label>Série:</label> {{aluno.dataValues.Serie}}</li>
+        <li><label>Curso:</label> {{aluno.dataValues.Curso}}</li>
+        <li><label>Turno:</label> {{aluno.dataValues.Turno}}</li>
+        <li><label>Deficiência:</label> {{aluno.dataValues.Deficiencia}}</li>
+        <li><label>Alergias:</label> {{aluno.dataValues.Alergias}}</li>
+        <li><label>Observação:</label> {{aluno.dataValues.Observacao}}</li>
+
+        <h2>Dados da Mãe</h2>
+
+        <li><label>Nome da Mãe:</label> {{aluno.dataValues.NomeMae}}</li>
+        <li><label>Celular da Mãe:</label> {{aluno.dataValues.CelularMae}}</li>
+        <li><label>Profissão da Mãe:</label> {{aluno.dataValues.ProfissaoMae}}</li>
+        <li><label>RG da Mãe:</label> {{aluno.dataValues.RGMae}}</li>
+        <li><label>CPF da Mãe:</label> {{aluno.dataValues.CPFMae}}</li>
+        <li><label>Data de Aniversário da Mãe:</label> {{formatedDateMom}}</li>
+
+        <h2>Dados do Pai</h2>
+
+        <li><label>Nome do Pai:</label> {{aluno.dataValues.NomePai}}</li>
+        <li><label>Celular do Pai:</label> {{aluno.dataValues.CelularPai}}</li>
+        <li><label>Profissão do Pai:</label> {{aluno.dataValues.ProfissaoPai}}</li>
+        <li><label>RG do Pai:</label> {{aluno.dataValues.RGPai}}</li>
+        <li><label>CPF do Pai:</label> {{aluno.dataValues.CPFPai}}</li>
+        <li><label>Data de Aniversário do Pai:</label> {{formatedDateDad}}</li>
+    </ul>
+</div>
+</body>

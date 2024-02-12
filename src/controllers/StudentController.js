@@ -3,6 +3,7 @@ const router = express.Router()
 const Aluno = require("../models/Aluno")
 const StudentCreate = require("../utils/db/StudentCreateDb")
 const createStudent = require("../utils/db/StudentCreateDb")
+const formatDate = require("../utils/functions")
 const Pai = require("../models/Pai")
 const Mae = require("../models/Mae")
 
@@ -65,6 +66,23 @@ const postEnrollStudent = async (req, res) => {
     
 }
 
+const getOneStudent = (req, res) => {
+    Aluno.findOne({
+        where: {
+            'id': req.params.id
+        }
+    }).then(aluno => {
+        res.render('pageStudent', {
+            aluno: aluno,
+            formatedDateStudent: formatDate(aluno.dataValues.DataDeNascimento),
+            formatedDateDad: formatDate(aluno.dataValues.DataDeAniversarioPai),
+            formatedDateMom: formatDate(aluno.dataValues.DataDeAniversarioMae),
+        })
+    }).catch(err => {
+        res.send("Este aluno não está matriculado " + err)
+    })
+}
+
 const getDisenrollStudent =  (req, res) => {
     Aluno.destroy({
         where: {
@@ -81,6 +99,7 @@ const getDisenrollStudent =  (req, res) => {
 module.exports = {
     getIndex,
     getListStudents,
+    getOneStudent,
     postEnrollStudent,
     getDisenrollStudent
 };
