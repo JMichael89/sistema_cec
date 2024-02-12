@@ -17,7 +17,7 @@ const Aluno = db.sequelize.define('Aluno', {
     allowNull: false,
     unique: true
   },
-  Data_de_nascimento: {
+  DataDeNascimento: {
     type: db.Sequelize.DATE,
     allowNull: false
   },
@@ -41,13 +41,56 @@ const Aluno = db.sequelize.define('Aluno', {
   },
   Observacao: {
     type: db.Sequelize.TEXT
+  },
+  NomeMae: {
+    type: db.Sequelize.STRING,
+    allowNull: false
+  },
+  CelularMae: {
+    type: db.Sequelize.STRING(15)
+  },
+  ProfissaoMae: {
+    type: db.Sequelize.STRING
+  },
+  RGMae: {
+    type: db.Sequelize.STRING(20),
+    allowNull: false,
+    unique: true
+  },
+  CPFMae: {
+    type: db.Sequelize.STRING(14),
+    allowNull: false,
+    unique: true
+  },
+  DataDeAniversarioMae: {
+    type: db.Sequelize.DATE
+  },
+  NomePai: {
+    type: db.Sequelize.STRING,
+    allowNull: false
+  },
+  CelularPai: {
+    type: db.Sequelize.STRING(15)
+  },
+  ProfissaoPai: {
+    type: db.Sequelize.STRING
+  },
+  RGPai: {
+    type: db.Sequelize.STRING(20),
+    allowNull: false,
+    unique: true
+  },
+  CPFPai: {
+    type: db.Sequelize.STRING(14),
+    allowNull: false,
+    unique: true
+  },
+  DataDeAniversarioPai: {
+    type: db.Sequelize.DATE
   }
 });
 
-Aluno.belongsTo(Pai);
-Aluno.belongsTo(Mae);
 
-
-//  Aluno.sync({ force: true })
+// Aluno.sync({ force: true })
 
 module.exports = Aluno

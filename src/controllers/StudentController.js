@@ -28,18 +28,31 @@ const postEnrollStudent = async (req, res) => {
     }
 
     const contentStudent = {
-        Nome: req.body.nomeAluno,
-        CPF: req.body.rgAluno,
-        RG: req.body.cpfAluno,
-        Data_de_nascimento: '2000-01-01', // Formato: YYYY-MM-DD
+        Nome: req.body.nome,
+        CPF: req.body.cpf,
+        RG: req.body.rg,
+        Data_de_nascimento: req.body.data_nascimento,
         Situacao: req.body.situacao,
         Serie: req.body.serie,
         Curso: req.body.curso,
         Turno: req.body.turno,
-        Deficiencia: req.body.listaDef,
-        Alergias: req.body.qualAlerg,
-        Observacao: req.body.observacao
-    }
+        Deficiencia: req.body.deficiencia,
+        Alergias: req.body.alergias,
+        Observacao: req.body.observacao,
+        NomeMae: req.body.nome_mae,
+        CelularMae: req.body.celular_mae,
+        ProfissaoMae: req.body.profissao_mae,
+        RGMae: req.body.rg_mae,
+        CPFMae: req.body.cpf_mae,
+        DataDeAniversarioMae: req.body.data_aniversario_mae,
+        NomePai: req.body.nome_pai,
+        CelularPai: req.body.celular_pai,
+        ProfissaoPai: req.body.profissao_pai,
+        RGPai: req.body.rg_pai,
+        CPFPai: req.body.cpf_pai,
+        DataDeAniversarioPai: req.body.data_aniversario_pai
+    };
+    
 
     try {
         
