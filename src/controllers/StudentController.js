@@ -19,19 +19,13 @@ const getListStudents = (req, res) => {
 }
 
 const postEnrollStudent = async (req, res) => {
-    const contentDad = {
-
-    }
-
-    const contentMom = {
-        
-    }
+    console.log(req.body.data_nascimento)
 
     const contentStudent = {
         Nome: req.body.nome,
         CPF: req.body.cpf,
         RG: req.body.rg,
-        Data_de_nascimento: req.body.data_nascimento,
+        DataDeNascimento: req.body.data_nascimento,
         Situacao: req.body.situacao,
         Serie: req.body.serie,
         Curso: req.body.curso,
