@@ -3,7 +3,7 @@ const app = express();
 const handlebars = require("express-handlebars");
 
 const bodyParser = require("body-parser");
-const Aluno = require("./src/models/Aluno");
+const Aluno = require("./src/models/Student");
 
 const controllerStudent = require("./src/controllers/StudentController");
 

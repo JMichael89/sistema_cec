@@ -35,6 +35,22 @@
             font-weight: bold;
             color: #2980b9; /* azul claro */
         }
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .button-container button {
+            margin: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .button-container button:hover {
+            background-color: #2980b9; /* azul claro */
+            color: #fff;
+        }
     </style>
 </head>
 <body>
@@ -72,5 +88,11 @@
         <li><label>CPF do Pai:</label> {{aluno.dataValues.CPFPai}}</li>
         <li><label>Data de Aniversário do Pai:</label> {{formatedDateDad}}</li>
     </ul>
+
+    <div class="button-container">
+        <button onclick="gerarDocumentoMatricula()">Gerar Documento de Matrícula</button>
+        <button onclick="gerarBoleto()">Gerar Boleto</button>
+        <button onclick="desmatricularAluno()">Desmatricular Aluno</button>
+    </div>
 </div>
 </body>

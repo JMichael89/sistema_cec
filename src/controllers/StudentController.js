@@ -1,18 +1,14 @@
 const express = require("express")
 const router = express.Router()
-const Aluno = require("../models/Aluno")
-const StudentCreate = require("../utils/db/StudentCreateDb")
-const createStudent = require("../utils/db/StudentCreateDb")
+const Student = require("../models/Student")
 const formatDate = require("../utils/functions")
-const Pai = require("../models/Pai")
-const Mae = require("../models/Mae")
 
 const getIndex = (req, res) => {
     res.render('formCreateStudent')
 }
 
 const getListStudents = (req, res) => {
-    Aluno.findAll({ order: [['id', 'DESC']] }).then(alunos => {
+    Student.findAll({ order: [['id', 'DESC']] }).then(alunos => {
         res.render('listStudents', {
             alunos: alunos
         })
@@ -53,7 +49,7 @@ const postEnrollStudent = async (req, res) => {
         
         // const dataDad = await to(Pai.create());
         // const dataMom = await to(Mae.create());
-        const dataStudent = await Aluno.create(contentStudent);
+        const dataStudent = await Student.create(contentStudent);
         res.redirect('/alunos')
     } catch(e) {
         res.send({
@@ -67,7 +63,7 @@ const postEnrollStudent = async (req, res) => {
 }
 
 const getOneStudent = (req, res) => {
-    Aluno.findOne({
+    Student.findOne({
         where: {
             'id': req.params.id
         }

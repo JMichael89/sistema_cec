@@ -1,8 +1,6 @@
-const Pai = require('./Pai');
-const Mae = require('./Mae');
 const db = require('./db')
 
-const Aluno = db.sequelize.define('Aluno', {
+const Student = db.sequelize.define('Student', {
   Nome: {
     type: db.Sequelize.STRING,
     allowNull: false
@@ -91,6 +89,6 @@ const Aluno = db.sequelize.define('Aluno', {
 });
 
 
-// Aluno.sync({ force: true })
+// Student.sync({ force: true })
 
-module.exports = Aluno
+module.exports = Student
